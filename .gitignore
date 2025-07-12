@@ -1,0 +1,16 @@
+# Java
+target/
+*.class
+*.log
+
+# IDEs
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Maven
+/logs
+/.mvn
+!/src
