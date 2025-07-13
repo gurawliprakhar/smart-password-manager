@@ -1,5 +1,6 @@
 package com.smartpass.password_manager.controller;
 
+import com.smartpass.password_manager.DTO.LoginRequest;
 import com.smartpass.password_manager.DTO.RegisterRequest;
 import com.smartpass.password_manager.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -19,4 +20,11 @@ public class AuthController {
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(userService.registerUser(request));
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        String jwt = userService.loginUser(request);
+        return ResponseEntity.ok(jwt);
+    }
+
 }
