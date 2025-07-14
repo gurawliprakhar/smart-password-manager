@@ -1,16 +1,9 @@
-package com.smartpass.password_manager.entity;
+package com.smartpass.password_manager.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Table(name = "users")
 public class User {
 
@@ -28,6 +21,27 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PasswordEntry> passwordEntries;
 
+    // ✅ Default constructor
+    public User() {
+    }
+
+    // ✅ All-args constructor
+    public User(Long id, String name, String email, String password, List<PasswordEntry> passwordEntries) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.passwordEntries = passwordEntries;
+    }
+
+    // ✅ Constructor without ID and password list (useful for signup)
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    // ✅ Getters and setters
     public Long getId() {
         return id;
     }

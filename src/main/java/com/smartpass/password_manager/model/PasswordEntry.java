@@ -1,5 +1,4 @@
-package com.smartpass.password_manager.entity;
-import com.smartpass.password_manager.entity.User;
+package com.smartpass.password_manager.model;
 import jakarta.persistence.*;
 import lombok.*;
 
